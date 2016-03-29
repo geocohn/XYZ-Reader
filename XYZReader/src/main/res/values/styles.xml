@@ -17,12 +17,23 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+    <style name="Theme.Bacon" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@color/theme_primary_light</item>
+        <item name="android:colorForeground">@color/theme_primary</item>
+        <item name="android:textColor">@color/theme_primary_text</item>
     </style>
 
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="Theme.Bacon.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/theme_primary_light</item>
+        <item name="android:colorForeground">@color/theme_primary</item>
+        <item name="android:textColor">@color/theme_primary_text</item>
     </style>
+
+    <style name="Theme.Bacon.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/theme_primary_light</item>
+        <item name="android:colorForeground">@color/theme_primary</item>
+        <item name="android:textColor">@color/theme_primary_text</item>
+    </style>
+
 
 </resources>
