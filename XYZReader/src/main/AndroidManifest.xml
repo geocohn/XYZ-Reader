@@ -14,21 +14,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Bacon">
-        <activity
-            android:name=".ui.articledetail.ArticleDetailActivity"
-            android:parentActivityName=".ui.articlelist.ArticleListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="vnd.android.cursor.item/vnd.com.example.xyzreader.items" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.articlelist.ArticleListActivity" />
-        </activity>
 
         <service
             android:name=".data.UpdaterService"
@@ -48,6 +33,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.articledetail.ArticleDetailActivity"
+            android:label="@string/title_activity_article_detail"
+            android:parentActivityName=".ui.articlelist.ArticleListActivity"
+            android:theme="@style/Theme.Bacon">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.example.xyzreader.items" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.xyzreader.ui.articlelist.ArticleListActivity" />
         </activity>
     </application>
 

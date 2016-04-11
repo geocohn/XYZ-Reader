@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     private Context mContext;
     private RecyclerView mRecyclerView;
     private BroadcastReceiver mRefreshingReceiver;
+    private SwipeRefreshLayout mSwiper;
 
     public ArticleListFragment() {
     }
@@ -54,6 +56,15 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
 
         mContext.startService(new Intent(mContext, UpdaterService.class));
 
+        mSwiper = (SwipeRefreshLayout) rootView.findViewById(R.id.swiperefresh);
+        mSwiper.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mContext.startService(new Intent(mContext, UpdaterService.class));
+            }
+        });
+
+
         return rootView;
     }
 
@@ -64,9 +75,13 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
-                    if (!intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false)) {
+                    boolean updaterIsRefreshing =
+                            intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
+                    if (!updaterIsRefreshing) {
                         mRecyclerView.getAdapter().notifyDataSetChanged();
-//                        Log.d(LOG_TAG, "received broadcast");
+                        if (mSwiper != null) {
+                            mSwiper.setRefreshing(false);
+                        }
                     }
                 }
             }

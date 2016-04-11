@@ -1,10 +1,15 @@
 package com.example.xyzreader.ui.articlelist;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +30,7 @@ import com.squareup.picasso.Picasso;
  */
 public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAdapter.ViewHolder> {
 
+    private final String LOG_TAG = this.getClass().getSimpleName();
     private Context mContext;
     private RecyclerView.ViewHolder mSelectedHolder = null;
     private int mLastPosition = -1;
@@ -38,11 +44,29 @@ public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAd
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.article_list_item, parent, false);
         final ViewHolder vh = new ViewHolder(view);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW,
-                        ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                final long itemId = getItemId(vh.getAdapterPosition());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    final ActivityOptionsCompat options;
+                    final View imageView = view.findViewById(R.id.article_list_image);
+
+                    final String imageTransitionName = mContext.getString(R.string.image_transition_name)
+                            + itemId;
+                    final Pair<View, String> p1 = Pair.create(imageView, imageTransitionName);
+//                    Log.d(LOG_TAG, "item click image transition name = '" + imageTransitionName + "'");
+                    imageView.setTransitionName(imageTransitionName);
+                    options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            (ArticleListActivity) mContext,
+                            p1);
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,
+                            ItemsContract.Items.buildItemUri(itemId)), options.toBundle());
+                } else {
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,
+                            ItemsContract.Items.buildItemUri(itemId)));
+                }
             }
         });
         return vh;
@@ -77,13 +101,13 @@ public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAd
 
         // show the title and byline
         viewHolder.mArticleListItemTitle.setText(cursor.getString(ArticleLoader.Query.TITLE));
-        String subTitle = DateUtils.getRelativeTimeSpanString(
+        String byLine = DateUtils.getRelativeTimeSpanString(
                 cursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                 System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                 DateUtils.FORMAT_ABBREV_ALL).toString()
                 + " by "
                 + cursor.getString(ArticleLoader.Query.AUTHOR);
-        viewHolder.mArticleListItemSubtitle.setText(subTitle);
+        viewHolder.mArticleListItemByLine.setText(byLine);
     }
 
     @Override
@@ -98,19 +122,18 @@ public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAd
         ImageView mArticleListImageView;
         ProgressBar mArticleListImageProgressBar;
         TextView mArticleListItemTitle;
-        TextView mArticleListItemSubtitle;
+        TextView mArticleListItemByLine;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
             mArticleListImageView = (ImageView) mView.findViewById(R.id.article_list_image);
-            //mArticleListImageView.setLayoutParams(new FrameLayout.LayoutParams(400,625));
             mArticleListImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             mArticleListImageView.setAdjustViewBounds(true);
             mArticleListImageView.setPadding(8, 8, 8, 8);
             mArticleListImageProgressBar = (ProgressBar) mView.findViewById(R.id.article_list_image_progressbar);
             mArticleListItemTitle = (TextView) mView.findViewById(R.id.article_list_item_title);
-            mArticleListItemSubtitle = (TextView) mView.findViewById(R.id.article_list_item_byline);
+            mArticleListItemByLine = (TextView) mView.findViewById(R.id.article_list_item_byline);
         }
     }
 }

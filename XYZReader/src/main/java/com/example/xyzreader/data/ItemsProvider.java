@@ -11,11 +11,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsProvider extends ContentProvider {
+	private final String LOG_TAG = this.getClass().getSimpleName();
 	private SQLiteOpenHelper mOpenHelper;
 
 	interface Tables {
@@ -33,6 +35,23 @@ public class ItemsProvider extends ContentProvider {
 		matcher.addURI(authority, "items", ITEMS);
 		matcher.addURI(authority, "items/#", ITEMS__ID);
 		return matcher;
+	}
+
+	private String printableStr(String str) {
+		return (str != null? str : "null");
+	}
+
+	private String printableStr(String[] strList) {
+		if (strList == null)
+			return "null";
+		StringBuilder builder = new StringBuilder();
+		builder.append("{");
+		for (String str : strList) {
+			builder.append(str);
+			builder.append(", ");
+		}
+		builder.append("}");
+		return builder.toString();
 	}
 
 	@Override
@@ -58,6 +77,17 @@ public class ItemsProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 		final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 		final SelectionBuilder builder = buildSelection(uri);
+//		Log.d(LOG_TAG, "query ("
+//				+ uri.toString()
+//				+ ", "
+//				+ printableStr(projection)
+//				+ ", "
+//				+ printableStr(selection)
+//				+ ", "
+//				+ printableStr(selectionArgs)
+//				+ ", "
+//				+ printableStr(sortOrder)
+//				+ ")");
 		Cursor cursor = builder.where(selection, selectionArgs).query(db, projection, sortOrder);
         if (cursor != null) {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
