@@ -6,7 +6,7 @@ Presents a list of news article titles, and allows the user to view detailed inf
 
 ![screen shot](https://github.com/geocohn/xyzreader/blob/master/Screenshot_20160412-143923.png?raw=true)
 
-This was developed for Project 5 (**Make Your App Material**) as part of the Android Developer Nanodegree program at Udacity.
+This was developed for Project 5 (**Make Your App Material**) as part of the Android Developer Nanodegree program at [Udacity](https://www.udacity.com/).
 
 ### Prerequisities
 
@@ -26,7 +26,7 @@ As implemented, there are only 17 news articles, with identical text in each one
 
 ## Development
 
-The original working prototype was provided bt Udacity. The basic functionality of the user interface was re-implemented using Android Studio, with an emphasis on Material Design.
+The original working prototype was provided by [Udacity](https://www.udacity.com/). The basic functionality of the user interface was re-implemented using Android Studio, with an emphasis on Material Design.
 
 ## Authors
 
