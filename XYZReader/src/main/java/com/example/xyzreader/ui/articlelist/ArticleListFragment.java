@@ -1,3 +1,21 @@
+/*
+ *
+ *  * Copyright (C) 2016 George Cohn III
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License");
+ *  * you may not use this file except in compliance with the License.
+ *  * You may obtain a copy of the License at
+ *  *
+ *  *      http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  * See the License for the specific language governing permissions and
+ *  * limitations under the License.
+ *
+ */
+
 package com.example.xyzreader.ui.articlelist;
 
 import android.app.Activity;
@@ -23,11 +41,10 @@ import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
 
 /**
- * A placeholder fragment containing a simple view.
+ * A placeholder fragment containing a recycler view inside of a swipe refresher.
  */
 public class ArticleListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private static final int ARTICLE_LIST_BREAKPOINT = 800;
     private final String LOG_TAG = this.getClass().getSimpleName();
     private Context mContext;
     private RecyclerView mRecyclerView;
@@ -38,9 +55,9 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mContext = activity;
+    public void onAttach(Activity context) {
+        super.onAttach(context);
+        mContext = context;
         getLoaderManager().initLoader(0, null, this);
     }
 
@@ -116,8 +133,11 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new AutofitGridLayoutManager(mContext, ARTICLE_LIST_BREAKPOINT));
-        recyclerView.setHasFixedSize(false);
+        // derive the maximum column width from the dimens xml
+        int breakpoint = (int) getResources().getDimension(R.dimen.max_listitem_width);
+
+        recyclerView.setLayoutManager(new AutofitGridLayoutManager(mContext, breakpoint));
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(new ArticleListAdapter(mContext, null));
     }
 }

@@ -2,18 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/palette-v7/22.2.1/classes.jar"
+        jar="/home/geo/android-sdks/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="d3aba1c188fea5ee83ebbcb458be29d1cc0ef483">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-c89bcefa8f4deaaf1d5f082bca2b784b57a5257e.jar" />
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/support-annotations-23.3.0-fe6868709dc9f852d71ca2635b3120f00cc2c2a2.jar" />
     </item>
     <item
-        jar="/home/geo/android-sdks/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-5434de8fd774573830bba2bfdf7b60b7b0fa8fff.jar" />
+        sha1="a809555a2599054c3dcd1bf82b089315ac3a11df">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-d4cc30791ce511033a920a6e935e241892ab5fad.jar" />
+    </item>
+    <item
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.3.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-fbb593051a6bd17a18701943dd852e912e5ec9e1.jar" />
     </item>
     <item
         jar="/home/geo/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
@@ -23,18 +30,32 @@
         <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/picasso-2.5.2-75ba7d871e0da271943eb527f39d5c22fc263d96.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/design/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-3882d9f15b3fef89d2b933c6606f620d2f67a350.jar" />
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-0a9b1982b34caf8c74ce6949adf08f9b3dfbb587.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/23.3.0/libs/internal_impl-23.3.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-029bdcaf61cf6c05baa7d749e864e9c01bcdfc54.jar" />
+        sha1="8813bdcf7583107c4873150075d17c8072ec50cf">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/internal_impl-23.3.0-b6667649c9492fccccafe6d8b0c3840d7812dd85.jar" />
+    </item>
+    <item
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-02ed8c4bd2820b7ed0097549d15c03367c22350b.jar" />
+    </item>
+    <item
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/libs/internal_impl-23.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/internal_impl-23.3.0-7d1ca37e34f34aa0ee93cb284b6b66885758595d.jar" />
     </item>
     <item
         jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/libs/volley.jar"
@@ -51,39 +72,39 @@
         <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/okhttp-3.1.2-e26c658dddc11c02dcfaf2f5a24472d6c39bab65.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/design/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-c94c691cc39bc7f4bbfd4f53154df63e6f55b0a2.jar" />
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-84b82fca05a5d40d0604ea619acc02eda71ebd84.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="e1fa5e1123997a55e3ed65b44892993ff4b58cfe">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-187dc1e63f1fb98e951d802eae4f632ddaec6453.jar" />
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-34950f187642bd7962b2278eb4e5ccd32754147d.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-0752b3e4fec9274a2af5b4bc36cb43f7e58e0161.jar" />
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-0f1a9ece37a98ec76a55605ad3fefd4fdb2fa84c.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/22.2.1/classes.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/palette-v7/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c4caf832116bca1f2e140bf1fb600e2edd190837">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-97ef61ed0e1efc4fa46e0d62e1614200a1ba56e4.jar" />
+        sha1="d41792854b7fb173e61c2bfea5044fd47df76114">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-b52ecdb0478ed1d3ecd1984ec80c6465e9900714.jar" />
     </item>
     <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/libs/internal_impl-22.2.1.jar"
+        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-59fc1021789292841a0f61362ff020b0918625c6.jar" />
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/classes-94c0870a65e8a7561726cf011ba0c5521dee4ccd.jar" />
     </item>
     <item
         jar="/home/geo/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
@@ -91,13 +112,6 @@
         revision="22.0.1"
         sha1="98476622f10715998eacf9240d6b479f12c66143">
         <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/okio-1.6.0-598e18f7915d8a94bdf9ac7de1d6276588b9ab4d.jar" />
-    </item>
-    <item
-        jar="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/22.2.1/libs/internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6fc4c7067459e8d69e1bbcb3a8973cdd84d5d87b">
-        <dex dex="/home/geo/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-9f5ed7685cbd794858aba9ce9696065ca508f80e.jar" />
     </item>
 
 </items>

@@ -1,11 +1,31 @@
+/*
+ *
+ *  * Copyright (C) 2016 George Cohn III
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License");
+ *  * you may not use this file except in compliance with the License.
+ *  * You may obtain a copy of the License at
+ *  *
+ *  *      http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  * See the License for the specific language governing permissions and
+ *  * limitations under the License.
+ *
+ */
+
 package com.example.xyzreader.ui.articledetail;
 
 /**
  * Created by geo on 3/30/16.
+ * A placeholder fragment containing a simple view.
  */
 
 import android.app.Activity;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
@@ -16,6 +36,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.ShareActionProvider;
 import android.text.Html;
@@ -33,9 +54,6 @@ import com.example.xyzreader.data.ArticleLoader;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class ArticleDetailFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
     /**
@@ -46,7 +64,7 @@ public class ArticleDetailFragment extends Fragment implements
 
     private final String LOG_TAG = this.getClass().getSimpleName();
 
-    private Activity mContext;
+    private Context mContext;
     private long mArticleId;
     private Cursor mCursor;
     private View mRootView;
@@ -75,9 +93,9 @@ public class ArticleDetailFragment extends Fragment implements
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mContext = activity;
+    public void onAttach(Activity context) {
+        super.onAttach(context);
+        mContext = context;
     }
 
     @Override
@@ -150,7 +168,7 @@ public class ArticleDetailFragment extends Fragment implements
         if (mContext == null) {
             return;
         }
-        FloatingActionButton fab = (FloatingActionButton) mContext.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,11 +210,13 @@ public class ArticleDetailFragment extends Fragment implements
     private void setAppBarColor() {
         if (mContext != null && mPalette != null) {
 //            Log.d(LOG_TAG, "setting up appbar");
-            mContext.findViewById(R.id.toolbar_layout)
-                    .setBackgroundColor(mPalette.getVibrantColor(R.color.theme_primary));
+            getActivity().findViewById(R.id.toolbar_layout)
+                    .setBackgroundColor(mPalette.getVibrantColor(
+                            ContextCompat.getColor(mContext, R.color.theme_primary)));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mContext.getWindow().
-                        setStatusBarColor(mPalette.getDarkMutedColor(R.color.theme_primary_dark));
+                getActivity().getWindow().
+                        setStatusBarColor(mPalette.getDarkMutedColor(
+                                ContextCompat.getColor(mContext, R.color.theme_primary_dark)));
             }
         }
     }
@@ -248,7 +268,7 @@ public class ArticleDetailFragment extends Fragment implements
         // Light up the embedded links in the body of the article
         bodyView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+//        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
         bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
     }
 

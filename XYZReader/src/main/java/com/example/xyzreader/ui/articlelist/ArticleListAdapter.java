@@ -1,6 +1,23 @@
+/*
+ *
+ *  * Copyright (C) 2016 George Cohn III
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License");
+ *  * you may not use this file except in compliance with the License.
+ *  * You may obtain a copy of the License at
+ *  *
+ *  *      http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  * See the License for the specific language governing permissions and
+ *  * limitations under the License.
+ *
+ */
+
 package com.example.xyzreader.ui.articlelist;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,12 +44,14 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Created by geo on 3/23/16.
+ * Manage the specifics of elements of the main UI:
+ * a list of thumbnail images and article titles & bylines,
+ * where touching an element launches a detail view activity
  */
 public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAdapter.ViewHolder> {
 
     private final String LOG_TAG = this.getClass().getSimpleName();
-    private Context mContext;
-    private RecyclerView.ViewHolder mSelectedHolder = null;
+    private final Context mContext;
     private int mLastPosition = -1;
 
     public ArticleListAdapter(Context context, Cursor cursor) {
@@ -50,6 +69,7 @@ public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAd
             public void onClick(View view) {
                 final long itemId = getItemId(vh.getAdapterPosition());
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    // implement a transition if running on 21 or greater
                     final ActivityOptionsCompat options;
                     final View imageView = view.findViewById(R.id.article_list_image);
 
@@ -113,16 +133,17 @@ public class ArticleListAdapter  extends CursorRecyclerViewAdapter<ArticleListAd
     @Override
     public void onViewDetachedFromWindow(ViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
+        // prevent views from being lost if the user scrolls too fast
         holder.itemView.clearAnimation();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        View mView;
-        ImageView mArticleListImageView;
+        final View mView;
+        final ImageView mArticleListImageView;
         ProgressBar mArticleListImageProgressBar;
-        TextView mArticleListItemTitle;
-        TextView mArticleListItemByLine;
+        final TextView mArticleListItemTitle;
+        final TextView mArticleListItemByLine;
 
         public ViewHolder(View itemView) {
             super(itemView);

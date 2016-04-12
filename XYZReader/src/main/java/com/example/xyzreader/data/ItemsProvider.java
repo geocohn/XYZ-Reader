@@ -77,17 +77,6 @@ public class ItemsProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 		final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 		final SelectionBuilder builder = buildSelection(uri);
-//		Log.d(LOG_TAG, "query ("
-//				+ uri.toString()
-//				+ ", "
-//				+ printableStr(projection)
-//				+ ", "
-//				+ printableStr(selection)
-//				+ ", "
-//				+ printableStr(selectionArgs)
-//				+ ", "
-//				+ printableStr(sortOrder)
-//				+ ")");
 		Cursor cursor = builder.where(selection, selectionArgs).query(db, projection, sortOrder);
         if (cursor != null) {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
